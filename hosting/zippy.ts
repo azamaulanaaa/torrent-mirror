@@ -4,9 +4,7 @@ import fileUpload from '../interfaces/fileUpload'
 
 export default class{
 
-    private config = {
-        maxSize : 500 * 1024 * 1024
-    };
+    readonly maxSize = 500 * 1024 * 1024;
 
     private client : any;
 
@@ -35,7 +33,8 @@ export default class{
         return {uploadId, serverId};
     }
 
-    async upload(file : fileUpload){
+    async upload(file : fileUpload){        
+        let url : string = 'failed';
         let session = await this.prepUpload();
         let dataDefault = {
             'uploadid': session.uploadId,
@@ -51,13 +50,17 @@ export default class{
         });
         data.append('file', file.fs, file.fileName);
         
-        this.client.post('https://' + session.serverId + '.zippyshare.com/upload', data, {headers : data.getHeaders()})
+        await this.client.post('https://' + session.serverId + '.zippyshare.com/upload', data, {headers : data.getHeaders()})
         .then(function(response){
-            let regexp = /\[url\=([^\]]+)\]([^\]]+)\[\/url\]/g
-            let info = regexp.exec(response.data);
-            console.log(info[2] + " : " + info[1]);
+            if(response.status != 200)
+                return 0;
+            let regexp = /\[url\=([^\]]+)\]/g
+            let info;
+            if((info = regexp.exec(response.data)) !== null)
+                url = info[1];
         }).catch(function(error){
             console.log(error);
         });
+        return url;
     }
 }
