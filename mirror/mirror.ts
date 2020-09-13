@@ -60,7 +60,6 @@ export default async function(sourceTorrent, hosting, callback : TMirrorCallback
                             ,fileName : partName
                         }).then(url => {
                             result.uri.push(url);
-                            console.log(partName + ' : ' + url);
                         });
                     }
                 }else{
@@ -79,7 +78,6 @@ export default async function(sourceTorrent, hosting, callback : TMirrorCallback
                         ,fileName : file.name
                     }).then(url => {
                         result.uri.push(url);
-                        console.log(file.name + ' : ' + url);
                     });
                 }
                 results.push(result);
