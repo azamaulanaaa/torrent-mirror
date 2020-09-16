@@ -59,7 +59,7 @@ export default class{
             if((info = regexp.exec(response.data)) !== null)
                 url = info[1];
         }).catch(function(error){
-            console.log(error);
+            // console.log(error);
         });
         return url;
     }
