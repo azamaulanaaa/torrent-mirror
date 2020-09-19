@@ -1,0 +1,19 @@
+{
+    "name": "Torrent Mirror",
+    "description": "Mirror torrent to selected hosting",
+    "keywords": [
+      "torrent",
+      "nodejs",
+      "mirror"
+    ],
+    "website": "https://github.com/azamaulanaaa/torrent-mirror",
+    "repository": "https://github.com/azamaulanaaa/torrent-mirror",
+    "stack": "container",
+    "formation": {
+      "worker": {
+        "quantity": 1,
+        "size": "free"
+      }
+    }
+  }
+  
