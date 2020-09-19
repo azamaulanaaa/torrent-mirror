@@ -14,7 +14,7 @@ RUN npm prune --production
 FROM node:slim as runtime
 
 WORKDIR /app
-ENV PORT 3000
+ENV PORT 80
 EXPOSE ${PORT}
 
 COPY --from=builder "/app/dist/" "/app/dist/"
