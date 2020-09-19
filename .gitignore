@@ -2,3 +2,5 @@ download
 dist
 node_modules
 .vscode
+*.http
+.dockerignore
