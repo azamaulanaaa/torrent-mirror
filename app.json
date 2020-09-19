@@ -10,7 +10,7 @@
     "repository": "https://github.com/azamaulanaaa/torrent-mirror",
     "stack": "container",
     "formation": {
-      "worker": {
+      "web": {
         "quantity": 1,
         "size": "free"
       }
