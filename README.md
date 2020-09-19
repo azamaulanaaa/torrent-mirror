@@ -1,4 +1,4 @@
-# BOTKACA
+# Torrent Mirror
 
 Mirror torrent to selected hosting.
 
